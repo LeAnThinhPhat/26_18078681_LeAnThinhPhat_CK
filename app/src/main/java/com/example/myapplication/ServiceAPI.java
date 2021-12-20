@@ -8,7 +8,9 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface ServiceAPI {
     Gson gson = new GsonBuilder()
@@ -23,4 +25,8 @@ public interface ServiceAPI {
 
     @GET("users")
     Call<List<User>> getListUsers();
+
+    @POST("gmail")
+    Call<Gmail> addEmail(@Body Gmail gmail, MainActivity mainActivity);
+
 }
